@@ -1,0 +1,165 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+:root {
+  height: 100%;
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 4%;
+    --foreground: 40 20% 95%;
+
+    --card: 0 0% 9%;
+    --card-foreground: 40 20% 95%;
+
+    --popover: 0 0% 9%;
+    --popover-foreground: 40 20% 95%;
+
+    --primary: 46 65% 52%;
+    --primary-foreground: 0 0% 4%;
+
+    --secondary: 25 55% 46%;
+    --secondary-foreground: 40 20% 95%;
+
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 55%;
+
+    --accent: 40 30% 94%;
+    --accent-foreground: 0 0% 4%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 40 20% 95%;
+
+    --border: 0 0% 100% / 0.06;
+    --input: 0 0% 100% / 0.04;
+    --ring: 46 65% 52%;
+
+    --radius: 0.625rem;
+
+    --kylro-bg: #0A0A0A;
+    --kylro-surface: #171717;
+    --kylro-gold: #D4AF37;
+    --kylro-gold-light: #E8C547;
+    --kylro-ivory: #F5F1E8;
+    --kylro-copper: #B87333;
+    --kylro-glass: rgba(10, 10, 10, 0.72);
+    --kylro-glass-border: rgba(255, 255, 255, 0.06);
+    --kylro-glow: rgba(212, 175, 55, 0.18);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    background-color: var(--kylro-bg);
+    color: var(--kylro-ivory);
+  }
+
+  ::selection {
+    background: rgba(212, 175, 55, 0.25);
+    color: var(--kylro-ivory);
+  }
+}
+
+@layer utilities {
+  .kylro-noise {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  }
+
+  .kylro-glass {
+    background: var(--kylro-glass);
+    backdrop-filter: blur(32px) saturate(120%);
+    -webkit-backdrop-filter: blur(32px) saturate(120%);
+    border: 1px solid var(--kylro-glass-border);
+  }
+
+  .kylro-glass-strong {
+    background: rgba(10, 10, 10, 0.88);
+    backdrop-filter: blur(48px) saturate(130%);
+    -webkit-backdrop-filter: blur(48px) saturate(130%);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .kylro-glass-subtle {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+  }
+
+  .kylro-gold-text {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #E8C547 0%, #D4AF37 45%, #B87333 100%);
+  }
+
+  .kylro-gold-border {
+    position: relative;
+  }
+
+  .kylro-gold-border::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(232, 197, 71, 0.6), rgba(212, 175, 55, 0.3), rgba(184, 115, 51, 0.2));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  .kylro-glow {
+    box-shadow:
+      0 0 0 1px rgba(212, 175, 55, 0.08),
+      0 8px 32px rgba(0, 0, 0, 0.5),
+      0 0 48px var(--kylro-glow);
+  }
+
+  .kylro-glow-sm {
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.04),
+      0 4px 20px rgba(0, 0, 0, 0.4),
+      0 0 20px rgba(212, 175, 55, 0.06);
+  }
+
+  .kylro-elevation-1 {
+    box-shadow:
+      0 1px 2px rgba(0, 0, 0, 0.5),
+      0 4px 20px rgba(0, 0, 0, 0.35),
+      inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  }
+
+  .kylro-elevation-2 {
+    box-shadow:
+      0 4px 12px rgba(0, 0, 0, 0.5),
+      0 16px 48px rgba(0, 0, 0, 0.45),
+      inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  }
+
+  .kylro-elevation-3 {
+    box-shadow:
+      0 8px 24px rgba(0, 0, 0, 0.55),
+      0 32px 80px rgba(0, 0, 0, 0.5),
+      inset 0 1px 0 rgba(212, 175, 55, 0.06);
+  }
+
+  .kylro-shimmer {
+    background: linear-gradient(
+      105deg,
+      transparent 40%,
+      rgba(212, 175, 55, 0.08) 50%,
+      transparent 60%
+    );
+    background-size: 200% 100%;
+  }
+}
