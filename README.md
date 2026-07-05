@@ -120,9 +120,9 @@ Here's a **sexy GitHub README section** for your project.
 ## 📸 Preview
 
 ```bash
-![![alt text](image-2.png)]
-![![alt text](image-1.png)]
-![![alt text](image-3.png)]
+![alt text](image-2.png)
+![alt text](image-1.png)
+![alt text](image-3.png)
 ```
 
 ---
