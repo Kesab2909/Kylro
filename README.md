@@ -120,9 +120,9 @@ Here's a **sexy GitHub README section** for your project.
 ## 📸 Preview
 
 ```bash
-[ Dashboard Screenshot ]
-[ Whiteboard Screenshot ]
-[ Collaboration Screenshot ]
+![![alt text](image-2.png)]
+![![alt text](image-1.png)]
+![![alt text](image-3.png)]
 ```
 
 ---
@@ -130,20 +130,6 @@ Here's a **sexy GitHub README section** for your project.
 ## 🎯 Vision
 
 > Kylro aims to redefine collaborative visual thinking by combining the elegance of premium design systems with the power of real-time collaboration.
-
----
-
-## 🛠 Installation
-
-```bash
-git clone https://github.com/yourusername/kylro.git
-
-cd kylro
-
-npm install
-
-npm run dev
-```
 
 ---
 
